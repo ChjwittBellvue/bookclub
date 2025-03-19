@@ -14,6 +14,9 @@ import java.util.List;
 public class MemBookDao implements BookDao {
     private List<Book> books = new ArrayList<Book>();
 
+    /**\
+     * Default Constructor - adds 5 books
+     */
     public MemBookDao() {
         List<String> hitchhikersGuideAuthors = new ArrayList<>();
         hitchhikersGuideAuthors.add("Douglas Adams");
@@ -67,11 +70,20 @@ public class MemBookDao implements BookDao {
         books.add(spellmonger);
     }
 
+    /**
+     * Returns book list
+     * @return this book list
+     */
     @Override
     public List<Book> list() {
         return this.books;
     }
 
+    /**
+     * Finds a book by ISBN
+     * @param key
+     * @return Book
+     */
     @Override
     public Book find(String key) {
         for (Book book : this.books) {
