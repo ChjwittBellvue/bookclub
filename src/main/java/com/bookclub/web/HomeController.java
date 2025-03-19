@@ -1,3 +1,9 @@
+/*
+ *  REFERENCES
+ *
+ *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ */
+
 package com.bookclub.web;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
@@ -14,6 +20,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+    /**
+     * Moves user to index page
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String showHome(Model model)
     {
@@ -27,19 +38,29 @@ public class HomeController {
         model.addAttribute("books", books);
 
         return "index";
-    }
+    } // end showHome
 
+    /**
+     * Moves user to about page
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, path = "/about")
     public String showAboutUs(Model model)
     {
         return "about";
-    }
+    } // end showAboutUs
 
+    /**
+     * Moves user to contact page
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, path = "/contact")
     public String showContactUs(Model model)
     {
         return "contact";
-    }
+    } // end showContactUs
 
     @RequestMapping(method = RequestMethod.GET, value= "/{id}")
     public String getMonthlyBook(@PathVariable("id") String id, Model model) {
