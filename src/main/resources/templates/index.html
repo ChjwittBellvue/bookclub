@@ -35,6 +35,7 @@
 
         <!-- Loop through books-->
         <div class="col" th:each="book : ${books}">
+            <hr>
             <p class="card-text">
                 <span th:text="${book.getTitle()}"></span>
                 <br />
@@ -43,6 +44,7 @@
             <div class="btn-group">
                 <a href="#" th:href="@{/{id}(id=${book.getIsbn()})}" class="btn btn-sm btn-outline-secondary">View</a>
             </div>
+            <hr>
         </div>
         <!-- end div -->
     </main>

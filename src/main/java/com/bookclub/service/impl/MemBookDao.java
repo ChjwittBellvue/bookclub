@@ -1,3 +1,8 @@
+/*
+ *  REFERENCES
+ *
+ *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ */
 package com.bookclub.service.impl;
 
 import com.bookclub.model.Book;
@@ -14,7 +19,7 @@ public class MemBookDao implements BookDao {
         hitchhikersGuideAuthors.add("Douglas Adams");
         Book hitchhikersGuide = new Book("1",
                 "Hitchhiker's Guide to the Galaxy",
-                "A space comedy",
+                "A space comedy.",
                 208,
                 hitchhikersGuideAuthors
                 );
@@ -23,7 +28,7 @@ public class MemBookDao implements BookDao {
         reaperManAuthors.add("Terry Pratchett");
         Book reaperMan = new Book("2",
                 "Reaper Man",
-                "A comedy about death personified",
+                "A comedy about death personified.",
                 208,
                 reaperManAuthors
         );
@@ -33,7 +38,7 @@ public class MemBookDao implements BookDao {
         goodOmensAuthors.add("Neil Gaiman");
         Book goodOmens = new Book("3",
                 "Good Omens",
-                "A comedy about an angel and demon working together",
+                "A comedy about the apocalypse.",
                 400,
                 goodOmensAuthors
         );
@@ -42,7 +47,7 @@ public class MemBookDao implements BookDao {
         endersGameAuthors.add("Orson Scott Card");
         Book endersGame = new Book("4",
                 "Ender's Game",
-                "A sci-fi struggle for humanity's survival",
+                "A sci-fi struggle for humanity's survival.",
                 256,
                 endersGameAuthors
         );
@@ -51,7 +56,7 @@ public class MemBookDao implements BookDao {
         spellmongerAuthors.add("Terry Mancour");
         Book spellmonger = new Book("5",
                 "Spellmonger",
-                "A fantasy tale",
+                "A fantasy tale.",
                 624,
                 spellmongerAuthors
         );

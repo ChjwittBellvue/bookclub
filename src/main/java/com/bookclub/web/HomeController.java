@@ -62,6 +62,12 @@ public class HomeController {
         return "contact";
     } // end showContactUs
 
+    /**
+     * Moves user to detail page about book
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, value= "/{id}")
     public String getMonthlyBook(@PathVariable("id") String id, Model model) {
         String isbn = id;
