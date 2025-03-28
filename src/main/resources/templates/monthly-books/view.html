@@ -1,0 +1,40 @@
+
+<!--
+  REFERENCES
+
+  Debaluwe, W. (2021, January 11). String concatenation with Thymeleaf. Retrieved March 19, 2025,
+    from https://www.wimdeblauwe.com/blog/2021/01/11/string-concatenation-with-thymeleaf/
+
+  GetBootstrap (n.d.). Cards. Retrieved March 19, 2025, from https://getbootstrap.com/docs/4.0/components/card/
+
+  Witt, C. (2024). CIS 505 Intermediate Java Programming. Bellevue University, all rights reserved.
+-->
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div class="card">
+        <br />
+        <a href="/" th:href="@{/}">Return to books</a>
+        <br />
+        <div class="card-body">
+            <!-- Book Title -->
+            <h1 class="card-title" th:text="'Book Title: ' + ${book.getTitle()}"></h1>
+            <br />
+            <!-- Book Details -->
+            <div class="card-text" th:text="'ISBN: ' + ${book.getIsbn()}"></div>
+            <br />
+            <div class="card-text" th:text="'Description: ' + ${book.getDescription()}"></div>
+            <br />
+            <div class="card-text" th:text="'Number of Pages: ' + ${book.getNumOfPages()}"></div>
+            <br />
+
+            <!-- Book Authors -->
+            <strong>Authors</strong>
+            <ul th:each="author : ${book.getAuthors()}">
+                <li th:text="${author}"></li>
+            </ul>
+
+        </div>
+    </div>
+</head>
