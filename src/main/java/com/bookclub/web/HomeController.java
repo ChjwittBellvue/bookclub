@@ -3,10 +3,8 @@
  *
  *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
  */
-
 package com.bookclub.web;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.bookclub.model.Book;
 import com.bookclub.service.impl.MemBookDao;
 import org.springframework.stereotype.Controller;
