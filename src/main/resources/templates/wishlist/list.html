@@ -53,8 +53,10 @@
             </thead>
             <tbody>
                 <div class="col" th:each="wishlistItem : ${wishlist}">
-                    <th scope="row" th:text="${wishlistItem.getIsbn()}"></th>
-                    <td th:text="${wishlistItem.getTitle()}"></td>
+                    <tr>
+                        <th scope="row" th:text="${wishlistItem.getIsbn()}"></th>
+                        <td th:text="${wishlistItem.getTitle()}"></td>
+                    </tr>
                 </div>
             </tbody>
         </table>
