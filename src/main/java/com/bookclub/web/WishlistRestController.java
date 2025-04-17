@@ -1,3 +1,8 @@
+/*
+ *  REFERENCES
+ *
+ *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ */
 package com.bookclub.web;
 
 import com.bookclub.model.WishlistItem;
@@ -10,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="/api/wishlist", produces = "application/json")
-@CrossOrigin(origins = "*")
+//@CrossOrigin
 public class WishlistRestController {
 
     @Autowired
@@ -20,12 +25,12 @@ public class WishlistRestController {
         this.wishlistDao = wishlistDao;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping()
     public List<WishlistItem> showWishlist() {
         return wishlistDao.list();
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    @GetMapping(path = "/{id}")
     public WishlistItem findById(@PathVariable String id) {
         return wishlistDao.find(id);
     }
