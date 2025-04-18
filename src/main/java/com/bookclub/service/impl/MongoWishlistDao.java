@@ -10,6 +10,8 @@ import com.bookclub.service.dao.WishlistDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -42,6 +44,6 @@ public class MongoWishlistDao implements WishlistDao {
 
     @Override
     public WishlistItem find(String key) {
-        return null;
+        return mongoTemplate.findById(key, WishlistItem.class);
     }
 }
