@@ -13,18 +13,25 @@ public class Book {
     private String title;
     private String description;
     private int numOfPages;
-    private List<String> authors;
+    private String infoUrl;
 
     // Constructors
     public Book() {
     }
 
-    public Book(String isbn, String title, String description, int numOfPages, List<String> authors) {
+    public Book(String isbn, String title, String description, String infoUrl, int numOfPages) {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
+        this.infoUrl = infoUrl;
         this.numOfPages = numOfPages;
-        this.authors = authors;
+
+    }
+
+    public Book(String isbn, String title, String infoUrl) {
+        this.isbn = isbn;
+        this.title = title;
+        this.infoUrl = infoUrl;
     }
 
     // Mutators
@@ -60,12 +67,12 @@ public class Book {
         this.numOfPages = numOfPages;
     }
 
-    public List<String> getAuthors() {
-        return authors;
+    public String getInfoUrl() {
+        return infoUrl;
     }
 
-    public void setAuthors(List<String> authors) {
-        this.authors = authors;
+    public void setInfoUrl(String numOfPages) {
+        this.infoUrl = infoUrl;
     }
 
     // toString
@@ -74,7 +81,7 @@ public class Book {
         return "Book{isbn=" + isbn + ", " +
                 "title=" + title +
                 "description=" + description + ", " +
-                "numOfPages=" + numOfPages + ", " +
-                "authors=" + authors;
+                "infoUrl=" + infoUrl + ", " +
+                "numOfPages=" + numOfPages;
     }
 }
