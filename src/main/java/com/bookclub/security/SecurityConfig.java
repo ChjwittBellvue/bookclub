@@ -26,8 +26,16 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    // Encoder
     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
+    /**
+     * Sets up security configuration
+     * @param http
+     * @return SecurityFilterChain
+     * @throws Exception
+     */
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
@@ -47,6 +55,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * User definition for application
+     * @return InMemoryUserDetailsManager
+     */
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user = User.withUsername("user")

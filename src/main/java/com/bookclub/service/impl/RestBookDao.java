@@ -30,6 +30,11 @@ public class RestBookDao implements BookDao {
 
     }
 
+    /**
+     * Returns book information from external api
+     * @param isbnString
+     * @return
+     */
     public Object getBooksDoc(String isbnString) {
         RestTemplate rest = new RestTemplate();
         String openLibraryUrl = "https://openlibrary.org/api/books";
