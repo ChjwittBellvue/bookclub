@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <div class="card-subtitle text-muted">
+        <h1 class="card-title" th:text="'Book Title: ' + ${book.getTitle()}"></h1>
         Pages: <span th:text="${book.getNumOfPages()}"></span>
     </div>
 
