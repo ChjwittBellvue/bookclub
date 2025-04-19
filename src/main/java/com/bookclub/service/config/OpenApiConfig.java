@@ -1,8 +1,9 @@
 /*
 * References
 *
-* Medium (2023, April 1). Swagger-Open API to Spring Boot 3 Application(Web MVC). Retrieved April 17, 2025, from https://pranavkhodanpur.medium.com/swagger-open-api-to-spring-boot-3-application-d29d45d50fc2#:~:text=The%20springdoc%2Dopenapi%2Dstarter%2D,.info(
+* Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
 *
+* Medium (2023, April 1). Swagger-Open API to Spring Boot 3 Application(Web MVC). Retrieved April 17, 2025, from https://pranavkhodanpur.medium.com/swagger-open-api-to-spring-boot-3-application-d29d45d50fc2#:~:text=The%20springdoc%2Dopenapi%2Dstarter%2D,.info(
  */
 package com.bookclub.service.config;
 
@@ -15,6 +16,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
+    /**
+     * OpenAPI Configuration, needed for spring security 6.4.4
+     * @return
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()

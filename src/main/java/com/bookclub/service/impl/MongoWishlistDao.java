@@ -22,26 +22,48 @@ public class MongoWishlistDao implements WishlistDao {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    /**
+     * List Wishlist Items
+     * @return List of wishlist items
+     */
     @Override
     public List<WishlistItem> list() {
         return mongoTemplate.findAll(WishlistItem.class);
     }
 
+    /**
+     * Adds a new wishlist item
+     * @param entity
+     */
     @Override
     public void add(WishlistItem entity) {
         mongoTemplate.save(entity);
     }
 
+    /**
+     * Updates a current wishlist item
+     * @param entity
+     */
     @Override
     public void update(WishlistItem entity) {
 
     }
 
+    /**
+     * Removes a wishlist item
+     * @param entity
+     * @return boolean
+     */
     @Override
     public boolean remove(WishlistItem entity) {
         return false;
     }
 
+    /**
+     * Finds a wishlist item by its id
+     * @param key
+     * @return WishlistItem
+     */
     @Override
     public WishlistItem find(String key) {
         return mongoTemplate.findById(key, WishlistItem.class);

@@ -5,8 +5,6 @@
  */
 package com.bookclub.model;
 
-import java.util.List;
-
 public class Book {
     // Attributes
     private String isbn;
