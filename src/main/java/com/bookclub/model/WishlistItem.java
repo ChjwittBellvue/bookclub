@@ -36,6 +36,12 @@ public class WishlistItem {
         this.title = title;
     }
 
+//    public WishlistItem(String id, @NotNull String isbn, @NotNull String title) {
+//        this.id = id;
+//        this.isbn = isbn;
+//        this.title = title;
+//    }
+
     // Mutators
     public String getIsbn() {
         return isbn;
@@ -55,6 +61,10 @@ public class WishlistItem {
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsername() {

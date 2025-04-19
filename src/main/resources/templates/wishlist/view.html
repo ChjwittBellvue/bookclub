@@ -24,7 +24,7 @@
 <div class="container py-5" style="width: 50%;">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>New Wishlist Item</h1>
+            <h1>View Wishlist Item</h1>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
 <!--    <div class="container py-5" style="width: 50%;">-->
 
     <!-- start form-->
-    <form action="/wishlist" th:href="@{/wishlist/{id}" th:object="${wishlistItem}" method="post">
+    <form action="/wishlist/update" th:href="@{/wishlist/update}" th:object="${wishlistItem}" method="post">
         <!-- isbn form -->
         <div class="mb-3">
             <label for="isbn" class="form-label">ISBN</label>
@@ -48,6 +48,8 @@
             <input type="text" class="form-control" id="title" name="isbn" th:field="*{title}" />
             <small th:if="${#fields.hasErrors('title')}" style="color: red;" th:errors="*{title}"></small>
         </div>
+        <input type="hidden" class="form-control" id="id" name="id" th:field="*{id}" />
+
         <!-- input button -->
         <input type="submit" value="Update"/>
     </form>

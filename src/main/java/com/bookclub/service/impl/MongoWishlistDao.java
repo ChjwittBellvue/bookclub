@@ -45,6 +45,8 @@ public class MongoWishlistDao implements WishlistDao {
             wishlistItem.setIsbn(entity.getIsbn());
             wishlistItem.setTitle(entity.getTitle());
             wishlistItem.setUsername(entity.getUsername());
+
+            mongoTemplate.save(wishlistItem);
         }
     }
 
