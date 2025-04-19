@@ -30,7 +30,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authz) -> authz
                         .anyRequest().authenticated()
-                )
+                ).csrf().disable()
                 .httpBasic(withDefaults())
                 .formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll();
