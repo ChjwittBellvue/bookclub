@@ -23,9 +23,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    /**
-     * Encoder
-     */
+
+    // Encoder
     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
     /**
