@@ -64,7 +64,7 @@ public class MongoWishlistDao implements WishlistDao {
 
     /**
      * Removes a wishlist item
-     * @param entity
+     * @param key
      * @return boolean
      */
     @Override

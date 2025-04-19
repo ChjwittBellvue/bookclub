@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.data.annotation.Id;
 
 public class BookOfTheMonth {
+    //Attributes
     @Id
     private String id;
 
@@ -19,6 +20,7 @@ public class BookOfTheMonth {
     @NotEmpty(message = "ISBN is a required field.")
     private String isbn;
 
+    //Constructors
     public BookOfTheMonth() {
     }
 
@@ -51,6 +53,10 @@ public class BookOfTheMonth {
         this.isbn = isbn;
     }
 
+    /**
+     * ToString
+     * @return
+     */
     @Override
     public String toString() {
         return "BookOfTheMonth{" +

@@ -75,6 +75,12 @@ public class AdminController {
         return "redirect:/monthly-books";
     } // end addWishlistItem
 
+    /**
+     * Shows book of the month
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, path= "/{id}")
     public String showBookOfTheMonth(@PathVariable String id, Model model) {
         BookOfTheMonth bookOfTheMonth = bookOfTheMonthDao.find(id);
@@ -84,10 +90,15 @@ public class AdminController {
         return "monthly-books/view";
     }
 
+    /**
+     * Updates book of the month
+     * @param bookOfTheMonth
+     * @param bindingResult
+     * @param authentication
+     * @return
+     */
     @RequestMapping(method = RequestMethod.POST, path= "/update")
     public String updateBookOfTheMonth(@Valid BookOfTheMonth bookOfTheMonth, BindingResult bindingResult, Authentication authentication) {
-//        wishlistItem.setUsername(authentication.getName());
-
         if (bindingResult.hasErrors()) {
             return "monthly-books/view";
         }
@@ -97,6 +108,11 @@ public class AdminController {
         return "redirect:/monthly-books";
     }
 
+    /**
+     * Removes book of the month
+     * @param id
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, path= "/remove/{id}")
     public String removeBookOfTheMonth(@PathVariable String id) {
 
@@ -105,6 +121,10 @@ public class AdminController {
         return "monthly-books/list";
     }
 
+    /**
+     * Maps months to number of month in the year
+     * @return
+     */
     private Map<Integer, String> getMonths() {
         Map<Integer, String> months = new HashMap<>();
         months.put(1, "January");

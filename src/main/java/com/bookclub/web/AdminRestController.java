@@ -24,11 +24,20 @@ public class AdminRestController {
         this.bookOfTheMonthDao = bookOfTheMonthDao;
     }
 
+    /**
+     * Returns all books of the month
+     * @return
+     */
     @GetMapping()
     public List<BookOfTheMonth> showBooksOfTheMonth() {
         return bookOfTheMonthDao.list("999");
     }
 
+    /**
+     * Finds book of the month by id
+     * @param id
+     * @return
+     */
     @GetMapping(path = "/{id}")
     public BookOfTheMonth findById(@PathVariable String id) {
         return bookOfTheMonthDao.find(id);

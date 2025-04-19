@@ -22,6 +22,10 @@ public class MongoBookOfTheMonthDao implements BookOfTheMonthDao {
         mongoTemplate.save(entity);
     }
 
+    /**
+     * Updates an existing book of the month
+     * @param entity
+     */
     @Override
     public void update(BookOfTheMonth entity) {
         BookOfTheMonth bookOfTheMonth = mongoTemplate.findById(entity.getId(), BookOfTheMonth.class);
@@ -34,6 +38,11 @@ public class MongoBookOfTheMonthDao implements BookOfTheMonthDao {
         }
     }
 
+    /**
+     * Removes existing book of the month
+     * @param key
+     * @return
+     */
     @Override
     public boolean remove(String key) {
         Query query = new Query();
@@ -45,6 +54,11 @@ public class MongoBookOfTheMonthDao implements BookOfTheMonthDao {
         return true;
     }
 
+    /**
+     * Returns full list of books of the month
+     * @param key
+     * @return
+     */
     @Override
     public List<BookOfTheMonth> list(String key) {
         int month = Integer.parseInt(key);
@@ -62,8 +76,13 @@ public class MongoBookOfTheMonthDao implements BookOfTheMonthDao {
         return mongoTemplate.find(query, BookOfTheMonth.class);
     }
 
+    /**
+     * Returns book of the month by id
+     * @param key
+     * @return
+     */
     @Override
     public BookOfTheMonth find(String key) {
-        return null;
+        return mongoTemplate.findById(key, BookOfTheMonth.class);
     }
 }
