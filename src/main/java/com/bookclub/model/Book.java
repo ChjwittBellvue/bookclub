@@ -79,9 +79,9 @@ public class Book {
     @Override
     public String toString() {
         return "Book{isbn=" + isbn + ", " +
-                "title=" + title +
+                "title=" + title + ", " +
                 "description=" + description + ", " +
                 "infoUrl=" + infoUrl + ", " +
-                "numOfPages=" + numOfPages;
+                "numOfPages=" + numOfPages + "}";
     }
 }
