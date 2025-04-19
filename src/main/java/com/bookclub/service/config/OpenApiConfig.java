@@ -15,6 +15,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
+    /**
+     * OpenAPI Configuration, needed for spring security 6.4.4
+     * @return
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()

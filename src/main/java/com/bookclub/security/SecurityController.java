@@ -18,11 +18,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SecurityController {
 
+    /**
+     * Displays login page
+     * @return login
+     */
     @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String showLoginPage() {
         return "login";
     }
 
+    /**
+     * Displays logout message on login page
+     * @param request
+     * @param response
+     * @return logout
+     */
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
