@@ -75,6 +75,6 @@ public class Book {
                 "title=" + title +
                 "description=" + description + ", " +
                 "numOfPages=" + numOfPages + ", " +
-                "authors=" + authors;
+                "authors=" + authors + "}";
     }
 }
