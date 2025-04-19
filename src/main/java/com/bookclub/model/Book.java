@@ -83,5 +83,6 @@ public class Book {
                 "description=" + description + ", " +
                 "infoUrl=" + infoUrl + ", " +
                 "numOfPages=" + numOfPages +"}";
+
     }
 }
