@@ -26,12 +26,20 @@ public class WishlistRestController {
         this.wishlistDao = wishlistDao;
     }
 
+    /**
+     * Gets full wishlist
+     * @return List of wishlist items
+     */
     @GetMapping()
     public List<WishlistItem> showWishlist(Authentication authentication) {
         String username = authentication.getName();
         return wishlistDao.list(username);
     }
 
+    /**
+     * Gets wishlist item by id
+     * @return wishlist item
+     */
     @GetMapping(path = "/{id}")
     public WishlistItem findById(@PathVariable String id) {
         return wishlistDao.find(id);
