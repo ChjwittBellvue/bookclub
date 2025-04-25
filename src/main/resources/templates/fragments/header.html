@@ -19,6 +19,7 @@
                   <span class="navbar-toggler-icon"></span>
               </button>
 
+              <!-- navbar -->
               <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                       <li class="nav-item">
@@ -33,17 +34,25 @@
                   </ul>
               </div>
 
+
+              <!-- center navbar -->
           </div>
           <div class="nav navbar-nav ml-auto w-100 justify-content-center">
               <div sec:authorize="isAuthenticated()">
                   Logged in as <strong sec:authentication="name"></strong>
               </div>
           </div>
-          <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+          <!-- end navbar -->
+          <div class="nav navbar-nav ml-auto w-100 justify-content-end">
+              <li class="nav-item">
+                  <a href="/swagger-ui.html" class="nav-link" target="_blank">Open Specification</a>
+              </li>
               <li class="nav-item float-end">
                   <a href="/logout" th:href="@{/logout}" class="nav-link float-end">Logout</a>
               </li>
-          </ul>
+
+          </div>
+
       </nav>
   </header>
 </body>
