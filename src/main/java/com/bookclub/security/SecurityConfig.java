@@ -2,6 +2,8 @@
  *  REFERENCES
  *
  *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ *
+ * Stein-Kousathana, E. (2022, February 21). Spring Security without the WebSecurityConfigurerAdapter. Retrieved April 18, 2025, from https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
  */
 package com.bookclub.security;
 
@@ -23,31 +25,21 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    // Encoder
     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-    /**
-     * Sets up security configuration
-     * @param http
-     * @return SecurityFilterChain
-     * @throws Exception
-     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
                         .anyRequest().authenticated()
                 ).csrf().disable()
+
                 .httpBasic(withDefaults())
                 .formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll();
         return http.build();
     }
 
-    /**
-     * User definition for application
-     * @return InMemoryUserDetailsManager
-     */
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user = User.withUsername("user")
