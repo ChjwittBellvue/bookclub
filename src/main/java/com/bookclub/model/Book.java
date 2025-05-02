@@ -5,26 +5,31 @@
  */
 package com.bookclub.model;
 
-import java.util.List;
-
 public class Book {
     // Attributes
     private String isbn;
     private String title;
     private String description;
     private int numOfPages;
-    private List<String> authors;
+    private String infoUrl;
 
     // Constructors
     public Book() {
     }
 
-    public Book(String isbn, String title, String description, int numOfPages, List<String> authors) {
+    public Book(String isbn, String title, String description, String infoUrl, int numOfPages) {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
+        this.infoUrl = infoUrl;
         this.numOfPages = numOfPages;
-        this.authors = authors;
+
+    }
+
+    public Book(String isbn, String title, String infoUrl) {
+        this.isbn = isbn;
+        this.title = title;
+        this.infoUrl = infoUrl;
     }
 
     // Mutators
@@ -60,21 +65,21 @@ public class Book {
         this.numOfPages = numOfPages;
     }
 
-    public List<String> getAuthors() {
-        return authors;
+    public String getInfoUrl() {
+        return infoUrl;
     }
 
-    public void setAuthors(List<String> authors) {
-        this.authors = authors;
+    public void setInfoUrl(String numOfPages) {
+        this.infoUrl = infoUrl;
     }
 
     // toString
     @Override
     public String toString() {
         return "Book{isbn=" + isbn + ", " +
-                "title=" + title +
+                "title=" + title + ", " +
                 "description=" + description + ", " +
-                "numOfPages=" + numOfPages + ", " +
-                "authors=" + authors + "}";
+                "infoUrl=" + infoUrl + ", " +
+                "numOfPages=" + numOfPages + "}";
     }
 }
