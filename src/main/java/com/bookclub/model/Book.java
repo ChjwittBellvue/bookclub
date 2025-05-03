@@ -69,7 +69,7 @@ public class Book {
         return infoUrl;
     }
 
-    public void setInfoUrl(String numOfPages) {
+    public void setInfoUrl(String infoUrl) {
         this.infoUrl = infoUrl;
     }
 
@@ -80,6 +80,7 @@ public class Book {
                 "title=" + title + ", " +
                 "description=" + description + ", " +
                 "infoUrl=" + infoUrl + ", " +
-                "numOfPages=" + numOfPages + "}";
+                "numOfPages=" + numOfPages +"}";
+
     }
 }

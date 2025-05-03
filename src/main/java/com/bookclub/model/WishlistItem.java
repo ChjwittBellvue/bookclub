@@ -23,6 +23,8 @@ public class WishlistItem {
     @NotEmpty(message = "Title is a required field.")
     private String title;
 
+    private String username;
+
     // Constructors
     public WishlistItem() {
         isbn = "";
@@ -33,6 +35,12 @@ public class WishlistItem {
         this.isbn = isbn;
         this.title = title;
     }
+
+//    public WishlistItem(String id, @NotNull String isbn, @NotNull String title) {
+//        this.id = id;
+//        this.isbn = isbn;
+//        this.title = title;
+//    }
 
     // Mutators
     public String getIsbn() {
@@ -55,11 +63,24 @@ public class WishlistItem {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     // toString
     @Override
     public String toString() {
         return "Book{isbn=" + isbn + ", " +
                 "title=" + title  + ", " +
-                "id=" + id;
+                "id=" + id + ", " +
+                "username=" + username + "}";
     }
 }

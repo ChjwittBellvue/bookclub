@@ -64,10 +64,8 @@ public class RestBookDao implements BookDao {
      * @return this book list
      */
     @Override
-    public List<Book> list() {
-        String isbnString = "ISBN:9780593099322,9780261102361,9780261102378,9780590302715,9780316769532";
-
-        Object doc = getBooksDoc(isbnString);
+    public List<Book> list(String key) {
+        Object doc = getBooksDoc(key);
 
         List<Book> books = new ArrayList<Book>();
 
@@ -90,6 +88,8 @@ public class RestBookDao implements BookDao {
     @Override
     public Book find(String key) {
         Object doc = getBooksDoc(key);
+
+        System.out.println("Object: " + doc.toString());
 
         List<String> isbns = JsonPath.read(doc, "$..bib_key");
         List<String> titles = JsonPath.read(doc, "$..title");
