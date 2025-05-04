@@ -1,12 +1,16 @@
 /*
- *  REFERENCES
+ * References
  *
- *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ * (n.d.). Disable security for unit tests with spring boot. Stackoverflow. https://stackoverflow.com/questions/31169720/disable-security-for-unit-tests-with-spring-boot
  *
- * Stein-Kousathana, E. (2022, February 21). Spring Security without the WebSecurityConfigurerAdapter. Retrieved April 18, 2025, from https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
+ * (2024, January 2). Spring boot profiles not working correctly. Stackoverflow. Retrieved May 3, 2025, from https://stackoverflow.com/questions/77681970/spring-boot-profiles-not-working-correctly
+ *
+ * (2018, March 23). Disable security for unit tests with spring boot. Stackoverflow. Retrieved May 3, 2025, from https://stackoverflow.com/questions/31169720/disable-security-for-unit-tests-with-spring-boot
+ *
+ * Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ *
  */
 package com.bookclub.security;
-
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +18,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -24,10 +27,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+@Profile("test")
 @Configuration
-@EnableWebSecurity
-@Profile("development")
-public class SecurityConfig {
+public class TestSecurityConfig {
 
     // Encoder
     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -49,7 +51,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/monthly-books/list", "monthly-books/new", "monthly-books").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 ).csrf().disable()
                 .httpBasic(withDefaults())
                 .formLogin().loginPage("/login").permitAll()

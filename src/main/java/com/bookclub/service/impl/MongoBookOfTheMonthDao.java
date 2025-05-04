@@ -63,8 +63,6 @@ public class MongoBookOfTheMonthDao implements BookOfTheMonthDao {
     public List<BookOfTheMonth> list(String key) {
         int month = Integer.parseInt(key);
 
-        System.out.println("Month: " +month);
-
         if (month == 999) {
             return mongoTemplate.findAll(BookOfTheMonth.class);
         }

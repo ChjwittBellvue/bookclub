@@ -80,8 +80,6 @@ public class WishlistController {
 
         model.addAttribute("wishlistItem", wishlistItem);
 
-        System.out.println("id showWishlistItem: " + wishlistItem.getId());
-
         return "wishlist/view";
     }
 
