@@ -10,7 +10,7 @@ import java.util.List;
 public interface GenericCrudDao<E, K> {
     void add(E entity);
     void update(E entity);
-    boolean remove(E entity); // Return boolean
-    List<E> list(); // Return a list of objects of type E.
+    boolean remove(K key); // Return boolean
+    List<E> list(K key); // Return a list of objects of type E.
     E find(K key); // Return an object of type E
 }

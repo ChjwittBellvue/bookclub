@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -27,8 +28,12 @@ public class MongoWishlistDao implements WishlistDao {
      * @return List of wishlist items
      */
     @Override
-    public List<WishlistItem> list() {
-        return mongoTemplate.findAll(WishlistItem.class);
+    public List<WishlistItem> list(String username) {
+        Query query = new Query();
+
+        query.addCriteria(Criteria.where("username").is(username));
+
+        return mongoTemplate.find(query, WishlistItem.class);
     }
 
     /**
@@ -46,7 +51,15 @@ public class MongoWishlistDao implements WishlistDao {
      */
     @Override
     public void update(WishlistItem entity) {
+        WishlistItem wishlistItem = mongoTemplate.findById(entity.getId(), WishlistItem.class);
 
+        if (wishlistItem != null) {
+            wishlistItem.setIsbn(entity.getIsbn());
+            wishlistItem.setTitle(entity.getTitle());
+            wishlistItem.setUsername(entity.getUsername());
+
+            mongoTemplate.save(wishlistItem);
+        }
     }
 
     /**
@@ -55,8 +68,14 @@ public class MongoWishlistDao implements WishlistDao {
      * @return boolean
      */
     @Override
-    public boolean remove(WishlistItem entity) {
-        return false;
+    public boolean remove(String key) {
+        Query query = new Query();
+
+        query.addCriteria(Criteria.where("id").is(key));
+
+        mongoTemplate.remove(query, WishlistItem.class);
+
+        return true;
     }
 
     /**
