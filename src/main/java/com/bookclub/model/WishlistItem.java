@@ -81,6 +81,6 @@ public class WishlistItem {
         return "Book{isbn=" + isbn + ", " +
                 "title=" + title  + ", " +
                 "id=" + id + ", " +
-                "username=" + username;
+                "username=" + username + "}";
     }
 }
