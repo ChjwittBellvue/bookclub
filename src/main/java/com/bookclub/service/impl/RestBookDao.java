@@ -9,17 +9,18 @@ import com.bookclub.model.Book;
 import com.bookclub.service.dao.BookDao;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
-import org.bson.json.JsonObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class RestBookDao implements BookDao {
 
 
@@ -88,8 +89,6 @@ public class RestBookDao implements BookDao {
     @Override
     public Book find(String key) {
         Object doc = getBooksDoc(key);
-
-        System.out.println("Object: " + doc.toString());
 
         List<String> isbns = JsonPath.read(doc, "$..bib_key");
         List<String> titles = JsonPath.read(doc, "$..title");
