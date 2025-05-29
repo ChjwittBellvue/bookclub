@@ -1,7 +1,11 @@
+/*
+ *  REFERENCES
+ *
+ *  Witt, C. (2025). CIS 530 Intermediate Java Programming. Bellevue University, all rights reserved.
+ */
 package com.bookclub.service.impl;
 
 import com.bookclub.model.BookOfTheMonth;
-import com.bookclub.model.WishlistItem;
 import com.bookclub.service.dao.BookOfTheMonthDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
